@@ -1,0 +1,704 @@
+{
+    "regions": [
+        { "name": "moodeng1_img", "x": 100, "y": 0, "w":-1, "h":-1, 
+        "imageLoc": "./images/moodeng1.jpg"},
+        { "name": "moodeng2_img", "x": 100, "y": 0, "w":-1, "h":-1},
+        { "name": "moodeng3_img", "x": 100, "y": 0, "w":-1, "h":-1},
+        { "name": "moodeng4_img", "x": 100, "y": 0, "w":-1, "h":-1},
+        { "name": "moodeng5_img", "x": 100, "y": 0, "w":-1, "h":-1},
+        { "name": "moodeng6_img", "x": 100, "y": 0, "w":-1, "h":-1},
+        { "name": "scale1_img", "x": 0, "y": 300, "w":-1, "h":-1, 
+        "imageLoc": "./images/scale1.png"},
+        { "name": "scale2_img", "x": 0, "y": 300, "w":-1, "h":-1},
+        { "name": "scale3_img", "x": 0, "y": 300, "w":-1, "h":-1},
+        { "name": "scale4_img", "x": 0, "y": 300, "w":-1, "h":-1},
+        { "name": "scale5_img", "x": 0, "y": 300, "w":-1, "h":-1},
+        { "name": "scale6_img", "x": 0, "y": 300, "w":-1, "h":-1},
+        { "name": "moodeng1", "x": 0, "y": 300, "w":83, "h":100},
+        { "name": "moodeng2", "x": 83, "y": 300, "w":83, "h":100},
+        { "name": "moodeng3", "x": 166, "y": 300, "w":83, "h":100},
+        { "name": "moodeng4", "x": 249, "y": 300, "w":83, "h":100},
+        { "name": "moodeng5", "x": 332, "y": 300, "w":83, "h":100},
+        { "name": "moodeng6", "x": 415, "y": 300, "w":85, "h":100}
+    ], 
+    "states":[
+        { "name" : "inactive_1",
+          "transitions" : [
+                { "onEvent" : {"evtType" : "press", "region" : "moodeng1"},
+                  "target" : "active_1"
+                },
+                { "onEvent": {"evtType": "press", "region": "moodeng2"},
+                  "target": "active_2",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng1_img"},
+                        {"act": "set_image", "region": "moodeng2_img", "param": "./images/moodeng2.jpg"},
+                        {"act": "clear_image", "region": "scale1_img"},
+                        {"act": "set_image", "region": "scale2_img", "param": "./images/scale2.png"}
+                  ]
+                },
+                { "onEvent": {"evtType": "press", "region": "moodeng3"},
+                  "target": "active_3",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng1_img"},
+                        {"act": "set_image", "region": "moodeng3_img", "param": "./images/moodeng3.jpg"},
+                        {"act": "clear_image", "region": "scale1_img"},
+                        {"act": "set_image", "region": "scale3_img", "param": "./images/scale3.png"}
+                  ]
+                },
+                { "onEvent": {"evtType": "press", "region": "moodeng4"},
+                  "target": "active_4",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng1_img"},
+                        {"act": "set_image", "region": "moodeng4_img", "param": "./images/moodeng4.jpg"},
+                        {"act": "clear_image", "region": "scale1_img"},
+                        {"act": "set_image", "region": "scale4_img", "param": "./images/scale4.png"}
+                  ]
+                },
+                { "onEvent": {"evtType": "press", "region": "moodeng5"},
+                  "target": "active_5",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng1_img"},
+                        {"act": "set_image", "region": "moodeng5_img", "param": "./images/moodeng5.jpg"},
+                        {"act": "clear_image", "region": "scale1_img"},
+                        {"act": "set_image", "region": "scale5_img", "param": "./images/scale5.png"}
+                  ]
+                },
+                { "onEvent": {"evtType": "press", "region": "moodeng6"},
+                  "target": "active_6",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng1_img"},
+                        {"act": "set_image", "region": "moodeng6_img", "param": "./images/moodeng6.jpg"},
+                        {"act": "clear_image", "region": "scale1_img"},
+                        {"act": "set_image", "region": "scale6_img", "param": "./images/scale6.png"}
+                  ]
+                }
+            ]
+        },
+
+        { "name" : "active_1",
+          "transitions" : [
+                { "onEvent": {"evtType": "release", "region": "moodeng1"},
+                "target": "inactive_1", 
+                "actions": [{"act": "print", "param": "== RATED MOO DENG 1 =="}]
+                },
+
+                { "onEvent": {"evtType": "release_none", "region": "moodeng1"},
+                "target": "inactive_1",
+                "actions": [{"act": "print", "param": "== RATED MOO DENG 1 =="}]
+                },
+
+                { "onEvent": {"evtType": "move_inside", "region": "moodeng2"},
+                  "target": "active_2",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng1_img"},
+                        {"act": "set_image", "region": "moodeng2_img", "param": "./images/moodeng2.jpg"},
+                        {"act": "clear_image", "region": "scale1_img"},
+                        {"act": "set_image", "region": "scale2_img", "param": "./images/scale2.png"}
+                  ]
+                },
+
+                { "onEvent": {"evtType": "move_inside", "region": "moodeng3"},
+                  "target": "active_3",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng1_img"},
+                        {"act": "set_image", "region": "moodeng3_img", "param": "./images/moodeng3.jpg"},
+                        {"act": "clear_image", "region": "scale1_img"},
+                        {"act": "set_image", "region": "scale3_img", "param": "./images/scale3.png"}
+                  ]
+                },
+                { "onEvent": {"evtType": "move_inside", "region": "moodeng4"},
+                  "target": "active_4",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng1_img"},
+                        {"act": "set_image", "region": "moodeng4_img", "param": "./images/moodeng4.jpg"},
+                        {"act": "clear_image", "region": "scale1_img"},
+                        {"act": "set_image", "region": "scale4_img", "param": "./images/scale4.png"}
+                  ]
+                },
+                { "onEvent": {"evtType": "move_inside", "region": "moodeng5"},
+                  "target": "active_5",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng1_img"},
+                        {"act": "set_image", "region": "moodeng5_img", "param": "./images/moodeng5.jpg"},
+                        {"act": "clear_image", "region": "scale1_img"},
+                        {"act": "set_image", "region": "scale5_img", "param": "./images/scale5.png"}
+                  ]
+                },
+                { "onEvent": {"evtType": "move_inside", "region": "moodeng6"},
+                  "target": "active_6",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng1_img"},
+                        {"act": "set_image", "region": "moodeng6_img", "param": "./images/moodeng6.jpg"},
+                        {"act": "clear_image", "region": "scale1_img"},
+                        {"act": "set_image", "region": "scale6_img", "param": "./images/scale6.png"}
+                  ]
+                }
+            ]
+        },
+        { "name" : "inactive_2",
+          "transitions" : [
+                { "onEvent" : {"evtType" : "press", "region" : "moodeng2"},
+                  "target" : "active_2"
+                },
+                { "onEvent": {"evtType": "press", "region": "moodeng1"},
+                "target": "active_1",
+                "actions": [
+                      {"act": "clear_image", "region": "moodeng2_img"},
+                      {"act": "set_image", "region": "moodeng1_img", "param": "./images/moodeng1.jpg"},
+                      {"act": "clear_image", "region": "scale2_img"},
+                      {"act": "set_image", "region": "scale1_img", "param": "./images/scale1.png"}
+                ]
+              },
+              { "onEvent": {"evtType": "press", "region": "moodeng3"},
+                "target": "active_3",
+                "actions": [
+                      {"act": "clear_image", "region": "moodeng2_img"},
+                      {"act": "set_image", "region": "moodeng3_img", "param": "./images/moodeng3.jpg"},
+                      {"act": "clear_image", "region": "scale2_img"},
+                      {"act": "set_image", "region": "scale3_img", "param": "./images/scale3.png"}
+                ]
+              },
+              { "onEvent": {"evtType": "press", "region": "moodeng4"},
+                "target": "active_4",
+                "actions": [
+                      {"act": "clear_image", "region": "moodeng2_img"},
+                      {"act": "set_image", "region": "moodeng4_img", "param": "./images/moodeng4.jpg"},
+                      {"act": "clear_image", "region": "scale2_img"},
+                      {"act": "set_image", "region": "scale4_img", "param": "./images/scale4.png"}
+                ]
+              },
+              { "onEvent": {"evtType": "press", "region": "moodeng5"},
+                "target": "active_5",
+                "actions": [
+                      {"act": "clear_image", "region": "moodeng2_img"},
+                      {"act": "set_image", "region": "moodeng5_img", "param": "./images/moodeng5.jpg"},
+                      {"act": "clear_image", "region": "scale2_img"},
+                      {"act": "set_image", "region": "scale5_img", "param": "./images/scale5.png"}
+                ]
+              },
+              { "onEvent": {"evtType": "press", "region": "moodeng6"},
+                "target": "active_6",
+                "actions": [
+                      {"act": "clear_image", "region": "moodeng2_img"},
+                      {"act": "set_image", "region": "moodeng6_img", "param": "./images/moodeng6.jpg"},
+                      {"act": "clear_image", "region": "scale2_img"},
+                      {"act": "set_image", "region": "scale6_img", "param": "./images/scale6.png"}
+                ]
+              }
+            ]
+        },
+
+        { "name" : "active_2",
+          "transitions" : [
+                { "onEvent": {"evtType": "release", "region": "moodeng2"},
+                "target": "inactive_2", 
+                "actions": [{"act": "print", "param": "== RATED MOO DENG 2 =="}]
+                },
+
+                { "onEvent": {"evtType": "release_none", "region": "moodeng2"},
+                "target": "inactive_2",
+                "actions": [{"act": "print", "param": "== RATED MOO DENG 2 =="}]
+                },
+
+                { "onEvent": {"evtType": "move_inside", "region": "moodeng1"},
+                  "target": "active_1",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng2_img"},
+                        {"act": "set_image", "region": "moodeng1_img", "param": "./images/moodeng1.jpg"},
+                        {"act": "clear_image", "region": "scale2_img"},
+                        {"act": "set_image", "region": "scale1_img", "param": "./images/scale1.png"}
+                  ]
+                },
+
+                { "onEvent": {"evtType": "move_inside", "region": "moodeng3"},
+                  "target": "active_3",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng2_img"},
+                        {"act": "set_image", "region": "moodeng3_img", "param": "./images/moodeng3.jpg"},
+                        {"act": "clear_image", "region": "scale2_img"},
+                        {"act": "set_image", "region": "scale3_img", "param": "./images/scale3.png"}
+                  ]
+                },
+                { "onEvent": {"evtType": "move_inside", "region": "moodeng4"},
+                  "target": "active_4",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng2_img"},
+                        {"act": "set_image", "region": "moodeng4_img", "param": "./images/moodeng4.jpg"},
+                        {"act": "clear_image", "region": "scale2_img"},
+                        {"act": "set_image", "region": "scale4_img", "param": "./images/scale4.png"}
+                  ]
+                },
+                { "onEvent": {"evtType": "move_inside", "region": "moodeng5"},
+                  "target": "active_5",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng2_img"},
+                        {"act": "set_image", "region": "moodeng5_img", "param": "./images/moodeng5.jpg"},
+                        {"act": "clear_image", "region": "scale2_img"},
+                        {"act": "set_image", "region": "scale5_img", "param": "./images/scale5.png"}
+                  ]
+                },
+                { "onEvent": {"evtType": "move_inside", "region": "moodeng6"},
+                  "target": "active_6",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng2_img"},
+                        {"act": "set_image", "region": "moodeng6_img", "param": "./images/moodeng6.jpg"},
+                        {"act": "clear_image", "region": "scale2_img"},
+                        {"act": "set_image", "region": "scale6_img", "param": "./images/scale6.png"}
+                  ]
+                }
+            ]
+        },
+        { "name" : "inactive_3",
+          "transitions" : [
+                { "onEvent" : {"evtType" : "press", "region" : "moodeng3"},
+                  "target" : "active_3"
+                },
+                { "onEvent": {"evtType": "press", "region": "moodeng2"},
+                  "target": "active_2",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng3_img"},
+                        {"act": "set_image", "region": "moodeng2_img", "param": "./images/moodeng2.jpg"},
+                        {"act": "clear_image", "region": "scale3_img"},
+                        {"act": "set_image", "region": "scale2_img", "param": "./images/scale2.png"}
+                  ]
+                },
+                { "onEvent": {"evtType": "press", "region": "moodeng1"},
+                  "target": "active_1",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng3_img"},
+                        {"act": "set_image", "region": "moodeng1_img", "param": "./images/moodeng1.jpg"},
+                        {"act": "clear_image", "region": "scale3_img"},
+                        {"act": "set_image", "region": "scale1_img", "param": "./images/scale1.png"}
+                  ]
+                },
+                { "onEvent": {"evtType": "press", "region": "moodeng4"},
+                  "target": "active_4",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng3_img"},
+                        {"act": "set_image", "region": "moodeng4_img", "param": "./images/moodeng4.jpg"},
+                        {"act": "clear_image", "region": "scale3_img"},
+                        {"act": "set_image", "region": "scale4_img", "param": "./images/scale4.png"}
+                  ]
+                },
+                { "onEvent": {"evtType": "press", "region": "moodeng5"},
+                  "target": "active_5",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng3_img"},
+                        {"act": "set_image", "region": "moodeng5_img", "param": "./images/moodeng5.jpg"},
+                        {"act": "clear_image", "region": "scale3_img"},
+                        {"act": "set_image", "region": "scale5_img", "param": "./images/scale5.png"}
+                  ]
+                },
+                { "onEvent": {"evtType": "press", "region": "moodeng6"},
+                  "target": "active_6",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng3_img"},
+                        {"act": "set_image", "region": "moodeng6_img", "param": "./images/moodeng6.jpg"},
+                        {"act": "clear_image", "region": "scale3_img"},
+                        {"act": "set_image", "region": "scale6_img", "param": "./images/scale6.png"}
+                  ]
+                }
+            ]
+        },
+
+        { "name" : "active_3",
+          "transitions" : [
+                { "onEvent": {"evtType": "release", "region": "moodeng3"},
+                "target": "inactive_3", 
+                "actions": [{"act": "print", "param": "== RATED MOO DENG 3 =="}]
+                },
+
+                { "onEvent": {"evtType": "release_none", "region": "moodeng3"},
+                "target": "inactive_3",
+                "actions": [{"act": "print", "param": "== RATED MOO DENG 3 =="}]
+                },
+
+                { "onEvent": {"evtType": "move_inside", "region": "moodeng2"},
+                  "target": "active_2",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng3_img"},
+                        {"act": "set_image", "region": "moodeng2_img", "param": "./images/moodeng2.jpg"},
+                        {"act": "clear_image", "region": "scale3_img"},
+                        {"act": "set_image", "region": "scale2_img", "param": "./images/scale2.png"}
+                  ]
+                },
+
+                { "onEvent": {"evtType": "move_inside", "region": "moodeng1"},
+                  "target": "active_1",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng3_img"},
+                        {"act": "set_image", "region": "moodeng1_img", "param": "./images/moodeng1.jpg"},
+                        {"act": "clear_image", "region": "scale3_img"},
+                        {"act": "set_image", "region": "scale1_img", "param": "./images/scale1.png"}
+                  ]
+                },
+                { "onEvent": {"evtType": "move_inside", "region": "moodeng4"},
+                  "target": "active_4",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng3_img"},
+                        {"act": "set_image", "region": "moodeng4_img", "param": "./images/moodeng4.jpg"},
+                        {"act": "clear_image", "region": "scale3_img"},
+                        {"act": "set_image", "region": "scale4_img", "param": "./images/scale4.png"}
+                  ]
+                },
+                { "onEvent": {"evtType": "move_inside", "region": "moodeng5"},
+                  "target": "active_5",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng3_img"},
+                        {"act": "set_image", "region": "moodeng5_img", "param": "./images/moodeng5.jpg"},
+                        {"act": "clear_image", "region": "scale3_img"},
+                        {"act": "set_image", "region": "scale5_img", "param": "./images/scale5.png"}
+                  ]
+                },
+                { "onEvent": {"evtType": "move_inside", "region": "moodeng6"},
+                  "target": "active_6",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng3_img"},
+                        {"act": "set_image", "region": "moodeng6_img", "param": "./images/moodeng6.jpg"},
+                        {"act": "clear_image", "region": "scale3_img"},
+                        {"act": "set_image", "region": "scale6_img", "param": "./images/scale6.png"}
+                  ]
+                }
+            ]
+        },
+        { "name" : "inactive_4",
+          "transitions" : [
+                { "onEvent" : {"evtType" : "press", "region" : "moodeng4"},
+                  "target" : "active_4"
+                },
+                { "onEvent": {"evtType": "press", "region": "moodeng2"},
+                  "target": "active_2",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng4_img"},
+                        {"act": "set_image", "region": "moodeng2_img", "param": "./images/moodeng2.jpg"},
+                        {"act": "clear_image", "region": "scale4_img"},
+                        {"act": "set_image", "region": "scale2_img", "param": "./images/scale2.png"}
+                  ]
+                },
+                { "onEvent": {"evtType": "press", "region": "moodeng3"},
+                  "target": "active_3",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng4_img"},
+                        {"act": "set_image", "region": "moodeng3_img", "param": "./images/moodeng3.jpg"},
+                        {"act": "clear_image", "region": "scale4_img"},
+                        {"act": "set_image", "region": "scale3_img", "param": "./images/scale3.png"}
+                  ]
+                },
+                { "onEvent": {"evtType": "press", "region": "moodeng1"},
+                  "target": "active_1",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng4_img"},
+                        {"act": "set_image", "region": "moodeng1_img", "param": "./images/moodeng1.jpg"},
+                        {"act": "clear_image", "region": "scale4_img"},
+                        {"act": "set_image", "region": "scale1_img", "param": "./images/scale1.png"}
+                  ]
+                },
+                { "onEvent": {"evtType": "press", "region": "moodeng5"},
+                  "target": "active_5",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng4_img"},
+                        {"act": "set_image", "region": "moodeng5_img", "param": "./images/moodeng5.jpg"},
+                        {"act": "clear_image", "region": "scale4_img"},
+                        {"act": "set_image", "region": "scale5_img", "param": "./images/scale5.png"}
+                  ]
+                },
+                { "onEvent": {"evtType": "press", "region": "moodeng6"},
+                  "target": "active_6",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng4_img"},
+                        {"act": "set_image", "region": "moodeng6_img", "param": "./images/moodeng6.jpg"},
+                        {"act": "clear_image", "region": "scale4_img"},
+                        {"act": "set_image", "region": "scale6_img", "param": "./images/scale6.png"}
+                  ]
+                }
+            ]
+        },
+
+        { "name" : "active_4",
+          "transitions" : [
+                { "onEvent": {"evtType": "release", "region": "moodeng4"},
+                "target": "inactive_4", 
+                "actions": [{"act": "print", "param": "== RATED MOO DENG 4 =="}]
+                },
+
+                { "onEvent": {"evtType": "release_none", "region": "moodeng4"},
+                "target": "inactive_4",
+                "actions": [{"act": "print", "param": "== RATED MOO DENG 4 =="}]
+                },
+
+                { "onEvent": {"evtType": "move_inside", "region": "moodeng2"},
+                  "target": "active_2",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng4_img"},
+                        {"act": "set_image", "region": "moodeng2_img", "param": "./images/moodeng2.jpg"},
+                        {"act": "clear_image", "region": "scale4_img"},
+                        {"act": "set_image", "region": "scale2_img", "param": "./images/scale2.png"}
+                  ]
+                },
+
+                { "onEvent": {"evtType": "move_inside", "region": "moodeng1"},
+                  "target": "active_1",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng4_img"},
+                        {"act": "set_image", "region": "moodeng1_img", "param": "./images/moodeng1.jpg"},
+                        {"act": "clear_image", "region": "scale4_img"},
+                        {"act": "set_image", "region": "scale1_img", "param": "./images/scale1.png"}
+                  ]
+                },
+                { "onEvent": {"evtType": "move_inside", "region": "moodeng3"},
+                  "target": "active_3",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng4_img"},
+                        {"act": "set_image", "region": "moodeng3_img", "param": "./images/moodeng3.jpg"},
+                        {"act": "clear_image", "region": "scale4_img"},
+                        {"act": "set_image", "region": "scale3_img", "param": "./images/scale3.png"}
+                  ]
+                },
+                { "onEvent": {"evtType": "move_inside", "region": "moodeng5"},
+                  "target": "active_5",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng4_img"},
+                        {"act": "set_image", "region": "moodeng5_img", "param": "./images/moodeng5.jpg"},
+                        {"act": "clear_image", "region": "scale4_img"},
+                        {"act": "set_image", "region": "scale5_img", "param": "./images/scale5.png"}
+                  ]
+                },
+                { "onEvent": {"evtType": "move_inside", "region": "moodeng6"},
+                  "target": "active_6",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng4_img"},
+                        {"act": "set_image", "region": "moodeng6_img", "param": "./images/moodeng6.jpg"},
+                        {"act": "clear_image", "region": "scale4_img"},
+                        {"act": "set_image", "region": "scale6_img", "param": "./images/scale6.png"}
+                  ]
+                }
+            ]
+        },
+        { "name" : "inactive_5",
+          "transitions" : [
+                { "onEvent" : {"evtType" : "press", "region" : "moodeng5"},
+                  "target" : "active_5"
+                },
+                { "onEvent": {"evtType": "press", "region": "moodeng2"},
+                  "target": "active_2",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng5_img"},
+                        {"act": "set_image", "region": "moodeng2_img", "param": "./images/moodeng2.jpg"},
+                        {"act": "clear_image", "region": "scale5_img"},
+                        {"act": "set_image", "region": "scale2_img", "param": "./images/scale2.png"}
+                  ]
+                },
+                { "onEvent": {"evtType": "press", "region": "moodeng3"},
+                  "target": "active_3",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng5_img"},
+                        {"act": "set_image", "region": "moodeng3_img", "param": "./images/moodeng3.jpg"},
+                        {"act": "clear_image", "region": "scale5_img"},
+                        {"act": "set_image", "region": "scale3_img", "param": "./images/scale3.png"}
+                  ]
+                },
+                { "onEvent": {"evtType": "press", "region": "moodeng4"},
+                  "target": "active_4",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng5_img"},
+                        {"act": "set_image", "region": "moodeng4_img", "param": "./images/moodeng4.jpg"},
+                        {"act": "clear_image", "region": "scale5_img"},
+                        {"act": "set_image", "region": "scale4_img", "param": "./images/scale4.png"}
+                  ]
+                },
+                { "onEvent": {"evtType": "press", "region": "moodeng1"},
+                  "target": "active_1",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng5_img"},
+                        {"act": "set_image", "region": "moodeng1_img", "param": "./images/moodeng1.jpg"},
+                        {"act": "clear_image", "region": "scale5_img"},
+                        {"act": "set_image", "region": "scale1_img", "param": "./images/scale1.png"}
+                  ]
+                },
+                { "onEvent": {"evtType": "press", "region": "moodeng6"},
+                  "target": "active_6",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng5_img"},
+                        {"act": "set_image", "region": "moodeng6_img", "param": "./images/moodeng6.jpg"},
+                        {"act": "clear_image", "region": "scale5_img"},
+                        {"act": "set_image", "region": "scale6_img", "param": "./images/scale6.png"}
+                  ]
+                }
+            ]
+        },
+
+        { "name" : "active_5",
+          "transitions" : [
+                { "onEvent": {"evtType": "release", "region": "moodeng5"},
+                "target": "inactive_5", 
+                "actions": [{"act": "print", "param": "== RATED MOO DENG 5 =="}]
+                },
+
+                { "onEvent": {"evtType": "release_none", "region": "moodeng5"},
+                "target": "inactive_5",
+                "actions": [{"act": "print", "param": "== RATED MOO DENG 5 =="}]
+                },
+
+                { "onEvent": {"evtType": "move_inside", "region": "moodeng2"},
+                  "target": "active_2",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng5_img"},
+                        {"act": "set_image", "region": "moodeng2_img", "param": "./images/moodeng2.jpg"},
+                        {"act": "clear_image", "region": "scale5_img"},
+                        {"act": "set_image", "region": "scale2_img", "param": "./images/scale2.png"}
+                  ]
+                },
+
+                { "onEvent": {"evtType": "move_inside", "region": "moodeng1"},
+                  "target": "active_1",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng5_img"},
+                        {"act": "set_image", "region": "moodeng1_img", "param": "./images/moodeng1.jpg"},
+                        {"act": "clear_image", "region": "scale5_img"},
+                        {"act": "set_image", "region": "scale1_img", "param": "./images/scale1.png"}
+                  ]
+                },
+                { "onEvent": {"evtType": "move_inside", "region": "moodeng4"},
+                  "target": "active_4",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng5_img"},
+                        {"act": "set_image", "region": "moodeng4_img", "param": "./images/moodeng4.jpg"},
+                        {"act": "clear_image", "region": "scale5_img"},
+                        {"act": "set_image", "region": "scale4_img", "param": "./images/scale4.png"}
+                  ]
+                },
+                { "onEvent": {"evtType": "move_inside", "region": "moodeng3"},
+                  "target": "active_3",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng5_img"},
+                        {"act": "set_image", "region": "moodeng3_img", "param": "./images/moodeng3.jpg"},
+                        {"act": "clear_image", "region": "scale5_img"},
+                        {"act": "set_image", "region": "scale3_img", "param": "./images/scale3.png"}
+                  ]
+                },
+                { "onEvent": {"evtType": "move_inside", "region": "moodeng6"},
+                  "target": "active_6",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng5_img"},
+                        {"act": "set_image", "region": "moodeng6_img", "param": "./images/moodeng6.jpg"},
+                        {"act": "clear_image", "region": "scale5_img"},
+                        {"act": "set_image", "region": "scale6_img", "param": "./images/scale6.png"}
+                  ]
+                }
+            ]
+        },
+        { "name" : "inactive_6",
+          "transitions" : [
+                { "onEvent" : {"evtType" : "press", "region" : "moodeng6"},
+                  "target" : "active_6"
+                },
+                { "onEvent": {"evtType": "press", "region": "moodeng2"},
+                  "target": "active_2",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng6_img"},
+                        {"act": "set_image", "region": "moodeng2_img", "param": "./images/moodeng2.jpg"},
+                        {"act": "clear_image", "region": "scale6_img"},
+                        {"act": "set_image", "region": "scale2_img", "param": "./images/scale2.png"}
+                  ]
+                },
+                { "onEvent": {"evtType": "press", "region": "moodeng3"},
+                  "target": "active_3",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng6_img"},
+                        {"act": "set_image", "region": "moodeng3_img", "param": "./images/moodeng3.jpg"},
+                        {"act": "clear_image", "region": "scale6_img"},
+                        {"act": "set_image", "region": "scale3_img", "param": "./images/scale3.png"}
+                  ]
+                },
+                { "onEvent": {"evtType": "press", "region": "moodeng4"},
+                  "target": "active_4",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng6_img"},
+                        {"act": "set_image", "region": "moodeng4_img", "param": "./images/moodeng4.jpg"},
+                        {"act": "clear_image", "region": "scale6_img"},
+                        {"act": "set_image", "region": "scale4_img", "param": "./images/scale4.png"}
+                  ]
+                },
+                { "onEvent": {"evtType": "press", "region": "moodeng5"},
+                  "target": "active_5",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng6_img"},
+                        {"act": "set_image", "region": "moodeng5_img", "param": "./images/moodeng5.jpg"},
+                        {"act": "clear_image", "region": "scale6_img"},
+                        {"act": "set_image", "region": "scale5_img", "param": "./images/scale5.png"}
+                  ]
+                },
+                { "onEvent": {"evtType": "press", "region": "moodeng1"},
+                  "target": "active_1",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng6_img"},
+                        {"act": "set_image", "region": "moodeng1_img", "param": "./images/moodeng1.jpg"},
+                        {"act": "clear_image", "region": "scale6_img"},
+                        {"act": "set_image", "region": "scale1_img", "param": "./images/scale1.png"}
+                  ]
+                }
+            ]
+        },
+
+        { "name" : "active_6",
+          "transitions" : [
+                { "onEvent": {"evtType": "release", "region": "moodeng6"},
+                "target": "inactive_6", 
+                "actions": [{"act": "print", "param": "== RATED MOO DENG 6 =="}]
+                },
+
+                { "onEvent": {"evtType": "release_none", "region": "moodeng6"},
+                "target": "inactive_6",
+                "actions": [{"act": "print", "param": "== RATED MOO DENG 6 =="}]
+                },
+
+                { "onEvent": {"evtType": "move_inside", "region": "moodeng2"},
+                  "target": "active_2",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng6_img"},
+                        {"act": "set_image", "region": "moodeng2_img", "param": "./images/moodeng2.jpg"},
+                        {"act": "clear_image", "region": "scale6_img"},
+                        {"act": "set_image", "region": "scale2_img", "param": "./images/scale2.png"}
+                  ]
+                },
+
+                { "onEvent": {"evtType": "move_inside", "region": "moodeng1"},
+                  "target": "active_1",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng6_img"},
+                        {"act": "set_image", "region": "moodeng1_img", "param": "./images/moodeng1.jpg"},
+                        {"act": "clear_image", "region": "scale6_img"},
+                        {"act": "set_image", "region": "scale1_img", "param": "./images/scale1.png"}
+                  ]
+                },
+                { "onEvent": {"evtType": "move_inside", "region": "moodeng4"},
+                  "target": "active_4",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng6_img"},
+                        {"act": "set_image", "region": "moodeng4_img", "param": "./images/moodeng4.jpg"},
+                        {"act": "clear_image", "region": "scale6_img"},
+                        {"act": "set_image", "region": "scale4_img", "param": "./images/scale4.png"}
+                  ]
+                },
+                { "onEvent": {"evtType": "move_inside", "region": "moodeng5"},
+                  "target": "active_5",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng6_img"},
+                        {"act": "set_image", "region": "moodeng5_img", "param": "./images/moodeng5.jpg"},
+                        {"act": "clear_image", "region": "scale6_img"},
+                        {"act": "set_image", "region": "scale5_img", "param": "./images/scale5.png"}
+                  ]
+                },
+                { "onEvent": {"evtType": "move_inside", "region": "moodeng3"},
+                  "target": "active_3",
+                  "actions": [
+                        {"act": "clear_image", "region": "moodeng6_img"},
+                        {"act": "set_image", "region": "moodeng3_img", "param": "./images/moodeng3.jpg"},
+                        {"act": "clear_image", "region": "scale6_img"},
+                        {"act": "set_image", "region": "scale3_img", "param": "./images/scale3.png"}
+                  ]
+                }
+            ]
+        }
+    ]
+}
